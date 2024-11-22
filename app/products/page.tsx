@@ -18,7 +18,7 @@ const Products = () => {
         setDirection(e.target.value as Direction);
     };
 
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value)
     }
 
