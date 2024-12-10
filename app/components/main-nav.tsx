@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Menu } from "lucide-react"
-import { mainNavLinks } from "@/constant"
+import { mainNavLinks, userNavLinks } from "@/constant"
+
 
 
 const MainNav = () => {
@@ -29,10 +30,11 @@ const MainNav = () => {
               key={link.title}
               href={link.url}
               className={cn(
-                "block py-2 px-4 text-sm transition-colors",
+                "block py-2 px-4 text-lg transition-colors flex items-center gap-2",
                 pathName === link.url ? "text-black dark:text-white" : "text-muted-foreground"
               )}
             >
+              <link.icon />
               {link.title}
             </Link>
           ))

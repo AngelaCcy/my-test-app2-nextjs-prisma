@@ -5,7 +5,7 @@ import { footerLinks } from "@/constant"
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col text-gray-500 text-sm mt-5 border-t border-gray-100">
+    <footer className="flex flex-col text-gray-500 text-lg mt-5 border-t border-gray-100">
       <div className="flex flex-wrap justify-center max-sm:flex-col gap-10 px-6 py-10 sm:gap-20">
         {footerLinks.map((links) => (
           <div key={links.title}>
@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="flex items-center gap-2">
           <Code />
           <p className="text-gray-900 dark:text-gray-200">
-            &copy; Web
+            &copy; Created by Angela Chou
           </p>
         </div>
         <div className="flex max-sm:flex-col gap-2 sm:gap-4">

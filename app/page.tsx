@@ -1,7 +1,14 @@
-export default function Home() {
+import { auth } from "@/auth";
+import Products from "./productsAction/page";
+import { redirect } from "next/navigation";
+
+export default async function Home() {
+  const session = await auth();
+  if (!session?.user) {
+    return redirect("/signin");
+  }
+
   return (
-    <div>
-      <h1>Welcome to the Home Page</h1>
-    </div>
+    <Products />
   )
 }
