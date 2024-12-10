@@ -1,10 +1,11 @@
 import prisma from '@/lib/prisma';
+import { Product } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server'
 
 export const GET = async (req: NextRequest, { params }: { params: { id: string }  }) => {
     const id = Number(params.id);
     // try {
-        const product = await prisma.product.findUnique({
+        const product: Product | null = await prisma.product.findUnique({
             where: {
                 id: id,
             },
@@ -18,9 +19,9 @@ export const GET = async (req: NextRequest, { params }: { params: { id: string }
 
 export const PUT = async (req: NextRequest, { params }: { params: { id: string } }) => {
     const id = Number(params.id);
-    const {_, title, price, description, category, image } = await req.json();
+    const {title, price, description, category, image } = await req.json();
     try {
-        const updatedProduct = await prisma.product.update({
+        const updatedProduct: Product | null = await prisma.product.update({
             where: { id: id },
             data: {
                 title: title,

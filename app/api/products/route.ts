@@ -6,12 +6,13 @@ import { NextRequest, NextResponse } from 'next/server'
 // const url = "https://jsonplaceholder.typicode.com/posts";
 // 在後端server 使用Web fetch API 
 export const GET = async () => {
-    try {
-        const products = await prisma.product.findMany();
-        return NextResponse.json(products);
-    } catch (err: any) {
-        return NextResponse.json({ message: err.message});
-    }    
+    // try {
+    const products = await prisma.product.findMany();
+    if (!products) return NextResponse.json({ message: 'not found'});
+    return NextResponse.json(products);
+    // } catch (err: any) {
+    //     return NextResponse.json({ message: err.message});
+    // }    
 } 
 
 export const POST = async (req: NextRequest) => {
@@ -28,7 +29,7 @@ export const POST = async (req: NextRequest) => {
             }
         });
         return NextResponse.json(createdProduct);
-    } catch (err: any) {
-        return NextResponse.json({ message: err.message});
-    }    
+    } catch (err: unknown) {
+        return NextResponse.json({ message: 'created fail'});
+    }     
 } 
