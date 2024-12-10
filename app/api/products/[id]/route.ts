@@ -17,8 +17,8 @@ export const GET = async (req: NextRequest, { params }: { params: Promise<{ id: 
     // }    
 }
 
-export const PUT = async (req: NextRequest, { params }: { params: { id: string } }) => {
-    const id = Number(params.id);
+export const PUT = async (req: NextRequest, { params }: { params: Promise<{ id: string }> }) => {
+    const id = Number((await params).id);
     const {title, price, description, category, image } = await req.json();
     try {
         const updatedProduct: Product | null = await prisma.product.update({
