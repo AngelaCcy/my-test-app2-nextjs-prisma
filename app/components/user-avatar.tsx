@@ -1,10 +1,6 @@
 "use client"
 
 import {UserCircle2 } from "lucide-react"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { usePathname } from "next/navigation"
-import { auth } from "@/auth"
 
 const UserAvatar = () => {
   // const pathName = usePathname()

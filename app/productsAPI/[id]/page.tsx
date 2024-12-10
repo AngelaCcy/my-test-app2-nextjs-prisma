@@ -5,8 +5,7 @@ import { useParams, useRouter } from 'next/navigation'
 import Link from "next/link";
 import { Product as ProductType } from "@/app/utils/fake-data";
 import ProductCard from "../../components/ProductCardAction";
-import { deleteProductById, getProductById } from '@/app/utils/actions';
-import { cache, useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Swal from 'sweetalert2';
 

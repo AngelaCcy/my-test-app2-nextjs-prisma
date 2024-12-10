@@ -1,7 +1,6 @@
 // import { useParams } from 'next/navigation'
 import ProductForm from '@/app/components/ProductFormAPI';
 import { getProductById } from '@/app/utils/actions';
-import { Product } from '@/app/utils/fake-data';
 
 const EditProduct = async ({params,}: {params: Promise<{ id: string }>}) => {
     // const params = useParams();

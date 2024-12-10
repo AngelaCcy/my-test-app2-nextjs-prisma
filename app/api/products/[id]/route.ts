@@ -1,4 +1,3 @@
-import { Product } from '@/app/utils/fake-data';
 import prisma from '@/lib/prisma';
 import { NextRequest, NextResponse } from 'next/server'
 

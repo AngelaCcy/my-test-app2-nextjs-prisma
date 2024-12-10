@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Menu } from "lucide-react"
-import { mainNavLinks, userNavLinks } from "@/constant"
+import { mainNavLinks } from "@/constant"
 
 
 
