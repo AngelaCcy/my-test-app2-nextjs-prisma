@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma';
-import { Product } from '@prisma/client';
+import { Prisma, Product } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server'
 
 export const GET = async (req: NextRequest, { params }: { params: { id: string }  }) => {
@@ -33,7 +33,10 @@ export const PUT = async (req: NextRequest, { params }: { params: { id: string }
         });
         return NextResponse.json(updatedProduct);
     } catch (err: unknown) {
-        return NextResponse.json({ message: 'updated fail'});
+      if (err instanceof Prisma.PrismaClientKnownRequestError) {
+        return NextResponse.json({ message: err.message });
+      }
+        // return NextResponse.json({ message: 'updated fail'});
     }    
 }
 

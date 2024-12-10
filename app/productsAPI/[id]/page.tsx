@@ -16,7 +16,7 @@ const Product = () => {
     const router = useRouter();
     const [product, setProduct] = useState<ProductType>({} as ProductType);
 
-    if (!id) return <></>;
+    
     useEffect(() => {
         const fetchProduct = async () => {
             // const fetchedProduct = await getProductById(id);
@@ -24,7 +24,7 @@ const Product = () => {
             const fetchedProduct = await response.json();
             setProduct(fetchedProduct || {} as ProductType);
         }
-        fetchProduct();
+        if (id) fetchProduct();
     }, [id]);
 
     const handleDelete = async () => {

@@ -1,5 +1,6 @@
 import { Product } from '@/app/utils/fake-data';
 import prisma from '@/lib/prisma';
+import { Prisma } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server'
 // 我們自己的API 路由->http://localhost:3000/api/posts
 // 外部測試的API 路由
@@ -30,6 +31,9 @@ export const POST = async (req: NextRequest) => {
         });
         return NextResponse.json(createdProduct);
     } catch (err: unknown) {
-        return NextResponse.json({ message: 'created fail'});
+        // return NextResponse.json({ message: 'created fail'});
+        if (err instanceof Prisma.PrismaClientKnownRequestError) {
+            return NextResponse.json({ message: err.message });
+        }
     }     
 } 
