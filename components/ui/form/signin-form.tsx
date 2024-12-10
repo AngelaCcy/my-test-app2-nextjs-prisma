@@ -24,13 +24,7 @@ import { AuthButton } from "./SubmitButtons"
 import { GoogleSignin } from "@/app/utils/authActions"
 import { GithubSignin } from "@/app/utils/authActions"
 
-interface SignInFormProps {
-    callbackUrl: string
-}
-
-const SignInForm = ({
-    callbackUrl
-}: SignInFormProps) => {
+const SignInForm = () => {
     const { pending } = useFormStatus()
 // 使用z.infer<typeof ZodSchema>來傳回Typescript的type, 做為useForm的Form型別
     const form = useForm<z.infer<typeof userSignInValidation>>({

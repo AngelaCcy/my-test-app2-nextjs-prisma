@@ -7,7 +7,6 @@ import Image from "next/image";
 import logo from "@/public/img/logo.png";
 import LoginSignupNav from "./signinSignup-nav";
 import { auth } from "@/auth";
-import { usePathname } from "next/navigation";
 
 const Navbar = async () => {
   const session = await auth();

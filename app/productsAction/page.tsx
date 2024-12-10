@@ -1,7 +1,7 @@
 "use client";
 // Route 的page 一定用default export , 不能用named export 
 
-import { useState, ChangeEvent, useEffect, use } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import { sortByPrice, Direction, filterProductByTitle, Product } from "../utils/fake-data";
 import ProductCard from "../components/ProductCardAction";
 import { getProducts } from "../utils/actions";

@@ -3,16 +3,17 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export const GET = async (req: NextRequest, { params }: { params: { id: string }  }) => {
     const id = Number(params.id);
-    try {
+    // try {
         const product = await prisma.product.findUnique({
             where: {
                 id: id,
             },
         })
+        if (!product) return NextResponse.json({ message: 'not found'});
         return NextResponse.json(product);
-    } catch (err: any) {
-        return NextResponse.json({ message: err.message});
-    }    
+    // } catch (err: any) {
+    //     return NextResponse.json({ message: err.message});
+    // }    
 }
 
 export const PUT = async (req: NextRequest, { params }: { params: { id: string } }) => {
@@ -30,8 +31,8 @@ export const PUT = async (req: NextRequest, { params }: { params: { id: string }
             }
         });
         return NextResponse.json(updatedProduct);
-    } catch (err: any) {
-        return NextResponse.json({ message: err.message});
+    } catch (err: unknown) {
+        return NextResponse.json({ message: 'updated fail'});
     }    
 }
 

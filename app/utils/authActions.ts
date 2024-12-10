@@ -2,11 +2,11 @@
 
 import { signIn, signOut } from "@/auth";
 
-export async function GoogleSignin(formData: FormData) {
+export async function GoogleSignin() {
     await signIn("google", { redirectTo: "/" });
 }
 
-export async function GithubSignin(formData: FormData) {
+export async function GithubSignin() {
     await signIn("github", { redirectTo: "/" });
 }
 

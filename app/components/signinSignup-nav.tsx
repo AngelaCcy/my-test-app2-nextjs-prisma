@@ -2,12 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 
 const LoginSignupNav = () => {
-    const pathName = usePathname();
+    // const pathName = usePathname();
     const router = useRouter();
     
     return (
