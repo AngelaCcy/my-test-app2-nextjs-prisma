@@ -2,8 +2,8 @@ import prisma from '@/lib/prisma';
 import { Prisma, Product } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server'
 
-export const GET = async (req: NextRequest, { params }: { params: { id: string }  }) => {
-    const id = Number(params.id);
+export const GET = async (req: NextRequest, { params }: { params: Promise<{ id: string }> }) => {
+    const id = Number((await params).id);
     // try {
         const product: Product | null = await prisma.product.findUnique({
             where: {
@@ -40,9 +40,9 @@ export const PUT = async (req: NextRequest, { params }: { params: { id: string }
     }    
 }
 
-export const DELETE = async (req: NextRequest, { params }: { params: { id: string } }) => {
+export const DELETE = async (req: NextRequest, { params }: { params: Promise<{ id: string }> }) => {
     // const url = new URL(req.url).searchParams;
-    const id = Number(params.id);
+    const id = Number((await params).id);
   
     const post = await prisma.product.delete({
       where: {
