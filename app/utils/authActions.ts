@@ -13,3 +13,7 @@ export async function GithubSignin() {
 export async function SignOut() {
     await signOut({ redirectTo: "/" });
 }
+
+export async function MagicSignin(email: string) {
+    await signIn("nodemailer", { email, redirectTo:"/" });
+}
