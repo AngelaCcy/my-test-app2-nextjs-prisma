@@ -26,7 +26,7 @@ import { GithubSignin } from "@/app/utils/authActions"
 import { Loader2 } from "lucide-react"
 
 const SignInForm = () => {
-    const { pending } = useFormStatus()
+    // const { pending } = useFormStatus()
 // 使用z.infer<typeof ZodSchema>來傳回Typescript的type, 做為useForm的Form型別
     const form = useForm<z.infer<typeof userSignInValidation>>({
         resolver: zodResolver(userSignInValidation),
