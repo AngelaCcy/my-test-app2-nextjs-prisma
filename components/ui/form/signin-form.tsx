@@ -21,8 +21,9 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { AuthButton } from "./SubmitButtons"
-import { GoogleSignin } from "@/app/utils/authActions"
+import { GoogleSignin, MagicSignin } from "@/app/utils/authActions"
 import { GithubSignin } from "@/app/utils/authActions"
+import { Loader2 } from "lucide-react"
 
 const SignInForm = () => {
     const { pending } = useFormStatus()
@@ -31,20 +32,31 @@ const SignInForm = () => {
         resolver: zodResolver(userSignInValidation),
         defaultValues: {
         email: "",
-        password: ""
+        // password: ""
         }
     })
 
+    const { handleSubmit, control, formState } = form;
+    const { isSubmitting } = formState;
+
     async function onSubmit(values: z.infer<typeof userSignInValidation>) {
-        console.log(values)
+        // console.log(values)
+        // MagicSignin(values.email);
+        console.log("Form submission started:", values);
+        try {
+            await MagicSignin(values.email); // Ensure this function is awaited
+            console.log("Form submission completed.");
+        } catch (error) {
+            console.error("Error during submission:", error);
+        }
     }
 
     return (
         <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full">
             <div className="space-y-2">
             <FormField
-                control={form.control}
+                control={control}
                 name="email"
                 render={({ field }) => (
                 <FormItem>
@@ -56,31 +68,29 @@ const SignInForm = () => {
                 </FormItem>
                 )}
             />
-            <FormField
+            {/* <FormField
                 control={form.control}
                 name="password"
                 render={({ field }) => (
                 <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                    <Input
-                        type="password"
-                        placeholder="your password"
-                        {...field}
-                    />
+                    <Input placeholder="your password" {...field} />
                     </FormControl>
                     <FormMessage />
                 </FormItem>
                 )}
-            />
+            /> */}
             </div>
-            <Button
-            className="w-full mt-6"
-            type="submit"
-            disabled={pending}
-            >
-            {pending ? "Submitting..." : "Sign In"}
-            </Button>
+            {isSubmitting ?
+                <Button className="w-full mt-6 bg-red-400 hover:bg-red-300" type="submit" disabled={isSubmitting}>
+                    <Loader2 className="size-4 mr-2 animate-spin" /> Submitting...
+                </Button>
+                : <Button className="w-full mt-6 bg-red-400 hover:bg-red-300" type="submit" disabled={isSubmitting}
+                >
+                    Sign in with email
+                </Button>
+            }
         </form>
         {/* 這是畫出 ------------ or ---------------- */}
         <div className="flex items-center justify-center my-4">
