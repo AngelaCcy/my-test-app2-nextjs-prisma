@@ -7,7 +7,7 @@ This project is a shopping website, deployed on Vercel, and created to practice 
 ## Features
 
 - OAuth authentication (Sign in with Google and GitHub).
-- Login using Magic Links.
+- Login using Magic Link.
 - Shopping cart functionality to add or remove products.
 - Filter, search, and sort the product list.
 - Utilize Prisma ORM to perform CRUD operations on product data.
