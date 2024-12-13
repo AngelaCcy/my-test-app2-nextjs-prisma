@@ -1,6 +1,6 @@
 import { auth } from "@/auth";
+import HomePage from "@/components/ui/form/homepage";
 import { redirect } from "next/navigation";
-import HomePage from "@/components/ui/form/homePage";
 
 export default async function Home() {
   const session = await auth();
