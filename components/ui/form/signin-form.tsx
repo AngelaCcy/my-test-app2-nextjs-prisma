@@ -88,7 +88,7 @@ const SignInForm = () => {
                 </Button>
                 : <Button className="w-full mt-6 bg-red-400 hover:bg-red-300" type="submit" disabled={isSubmitting}
                 >
-                    Sign In
+                    Sign in with email
                 </Button>
             }
         </form>

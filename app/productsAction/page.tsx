@@ -50,7 +50,7 @@ const Products = () => {
             <h1 className="text-[#333] mt-8 text-center text-4xl font-bold pt-12">Product List using Server Action</h1>
             <div className="flex items-center justify-center pt-4">
                 <Link href="/productsAction/create">
-                    <Button>Create Product</Button>
+                    <Button className="bg-red-300 hover:bg-red-400">Create Product</Button>
                 </Link>
             </div>
             <div className='text-[#333] gap-4 flex mt-7 items-center justify-center'>
