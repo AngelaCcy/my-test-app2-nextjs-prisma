@@ -10,8 +10,8 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, all }: ProductCardProps) => {
-    const condition = all ? '' : 'overflow-hidden whitespace-nowrap text-ellipsis';
-    // const condition = all ? '' : 'truncate';
+    // const condition = all ? '' : 'overflow-hidden whitespace-nowrap text-ellipsis';
+    const condition = all ? '' : 'line-clamp-3';
     const { id, image, title, description, price } = product;
     return (
         <div key={id} className="flex p-6 gap-4 rounded-lg min-h-60 w-[600px] shadow-md hover:shadow-lg shadow-black/20 group">
@@ -23,6 +23,7 @@ const ProductCard = ({ product, all }: ProductCardProps) => {
                     <div className="text-[#333] text-lg transition-all duration-300 group-hover:text-red-400">{title}</div>
                 </Link>
                 <div className={`text-cyan-500 text-lg w-[400px] ${condition}`}>{description}</div>
+                {/* <div className="text-cyan-500 text-lg w-[400px] line-clamp-3">{description}</div> */}
                 <div className="text-2xl text-black">${price}</div>
             </div>
         </div>

@@ -19,6 +19,21 @@ export const ProductSchema = z.object({
 
 export type Product = z.infer<typeof ProductSchema>;
   
+export interface SaleProduct {
+    id: number
+    title: string
+    description: string
+    price: number
+    discountPercentage: number
+    rating: number
+    stock: number
+    brand: string
+    category: string
+    thumbnail: string
+    images: string[]
+    quantity?: number
+}
+
 
 // https://fakestoreapi.com/
 // export const FAKE_PRODUCT_DATA: Product[] = [

@@ -1,8 +1,8 @@
 import { CloudDownload, SquareFunction } from 'lucide-react';
 
 export const mainNavLinks = [
-    { title: "Product List using Server Action", url: "/productsAction", icon: SquareFunction },
-    { title: "Product List using API", url: "/productsAPI", icon:CloudDownload },
+    { title: "Product List (Action)", url: "/productsAction", icon: SquareFunction },
+    { title: "Product List (API)", url: "/productsAPI", icon:CloudDownload },
     // { title: "Sales", url: "/" },
     // { title: "Categories", url: "/" }
   ]

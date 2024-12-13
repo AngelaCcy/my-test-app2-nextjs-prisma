@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import Products from "./productsAction/page";
+import HomePage from "@/components/ui/form/homepage";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
@@ -9,6 +9,6 @@ export default async function Home() {
   }
 
   return (
-    <Products />
+    <HomePage />
   )
 }
