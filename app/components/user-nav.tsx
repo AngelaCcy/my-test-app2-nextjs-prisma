@@ -13,10 +13,12 @@ import {
 import UserAvatar from "./user-avatar"
 import { SignOut } from "../utils/authActions";
 import { Button } from "@/components/ui/button";
+import CartNav from "./cart-nav";
 
 const UserNav = () => {
   return (
-    <div>
+    <div className="flex justify-center ">
+      <CartNav />
       <DropdownMenu>
         <DropdownMenuTrigger><UserAvatar /></DropdownMenuTrigger>
         <DropdownMenuContent className="flex flex-col items-center justify-center mr-2">

@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
         port: '',
         search: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.dummyjson.com',
+        port: '',
+        search: '',
+      },
     ],
   },
   /* config options here */

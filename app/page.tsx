@@ -1,6 +1,6 @@
 import { auth } from "@/auth";
-import Products from "./productsAction/page";
 import { redirect } from "next/navigation";
+import HomePage from "@/components/ui/form/homePage";
 
 export default async function Home() {
   const session = await auth();
@@ -9,6 +9,6 @@ export default async function Home() {
   }
 
   return (
-    <Products />
+    <HomePage />
   )
 }

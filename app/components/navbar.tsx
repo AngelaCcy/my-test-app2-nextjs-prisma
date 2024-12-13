@@ -7,6 +7,7 @@ import Image from "next/image";
 import logo from "@/public/img/logo.png";
 import LoginSignupNav from "./signinSignup-nav";
 import { auth } from "@/auth";
+// import CartNav from "./cart-nav";
 
 const Navbar = async () => {
   const session = await auth();
@@ -21,6 +22,7 @@ const Navbar = async () => {
         <Link href="/">
           <Image src={logo} alt="menu" width={65} height={65}/>
         </Link>
+        <h1 className="text-lg text-red-300 font-bold">EShop</h1>
         <MainNav />
         <div className="ml-auto flex items-center space-x-4">
           {session?.user ? <UserNav /> : <LoginSignupNav />}
