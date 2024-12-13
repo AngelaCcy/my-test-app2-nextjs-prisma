@@ -5,7 +5,7 @@ import { SaleProduct as Product } from "@/app/utils/fake-data"
 interface State {
 	products: Product[]
 	isLoading: boolean
-	error: any
+	error: unknown
 }
 
 interface Actions {

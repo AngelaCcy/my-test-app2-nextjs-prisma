@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 interface Props {
 	isOpen: boolean
 	children: React.ReactNode
