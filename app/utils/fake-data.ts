@@ -9,31 +9,34 @@ import { z } from "zod";
 //     image: string | null;
 // }
 export const ProductSchema = z.object({
-    id: z.number().optional(),
-    title: z.string().min(1, { message: "Title is required" }),
-    price: z.number().min(1, { message: "Price is required" }),
-    description: z.string().min(1, { message: "Description is required" }),
-    category: z.string().min(1, { message: "Category is required" }),
-    image: z.string().url({ message: "Image must be a valid URL" }).startsWith("https://", { message: "Image must start with https://" }).nullable(),
+  id: z.number().optional(),
+  title: z.string().min(1, { message: "Title is required" }),
+  price: z.number().min(1, { message: "Price is required" }),
+  description: z.string().min(1, { message: "Description is required" }),
+  category: z.string().min(1, { message: "Category is required" }),
+  image: z
+    .string()
+    .url({ message: "Image must be a valid URL" })
+    .startsWith("https://", { message: "Image must start with https://" })
+    .nullable(),
 });
 
 export type Product = z.infer<typeof ProductSchema>;
-  
-export interface SaleProduct {
-    id: number
-    title: string
-    description: string
-    price: number
-    discountPercentage: number
-    rating: number
-    stock: number
-    brand: string
-    category: string
-    thumbnail: string
-    images: string[]
-    quantity?: number
-}
 
+export interface SaleProduct {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
+  quantity?: number;
+}
 
 // https://fakestoreapi.com/
 // export const FAKE_PRODUCT_DATA: Product[] = [
@@ -75,23 +78,25 @@ export type Direction = "ASC" | "DES";
 
 // 這使用到JS 的Array sort() method
 export function sortByPrice(direction: Direction, data: Product[]) {
-    return data.sort((a, b) => {
-        if (direction === "ASC") {
-            return a.price - b.price;
-        } else {
-            return b.price - a.price;
-        }
-    });
+  return data.sort((a, b) => {
+    if (direction === "ASC") {
+      return a.price - b.price;
+    } else {
+      return b.price - a.price;
+    }
+  });
 }
 
-// // 這使用到JS 的Array find method 
+// // 這使用到JS 的Array find method
 // export function getProductById(id: string) {
 //     const product = FAKE_PRODUCT_DATA.find((product) => product.id === id);
 //     return product || FAKE_PRODUCT_DATA[0];
 // }
 
-// 這使用到JS 的Array filter method 
+// 這使用到JS 的Array filter method
 //includes為JS string method, 若包含某字串, 會return true
 export function filterProductByTitle(query: string, data: Product[]) {
-    return data.filter(el => el.title.toLowerCase().includes(query.toLowerCase()))
+  return data.filter((el) =>
+    el.title.toLowerCase().includes(query.toLowerCase()),
+  );
 }
