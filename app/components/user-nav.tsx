@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link"
+import Link from "next/link";
 
 import {
   DropdownMenu,
@@ -9,8 +9,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import UserAvatar from "./user-avatar"
+} from "@/components/ui/dropdown-menu";
+import UserAvatar from "./user-avatar";
 import { SignOut } from "../utils/authActions";
 import { Button } from "@/components/ui/button";
 import CartNav from "./cart-nav";
@@ -20,7 +20,9 @@ const UserNav = () => {
     <div className="flex justify-center ">
       <CartNav />
       <DropdownMenu>
-        <DropdownMenuTrigger><UserAvatar /></DropdownMenuTrigger>
+        <DropdownMenuTrigger>
+          <UserAvatar />
+        </DropdownMenuTrigger>
         <DropdownMenuContent className="flex flex-col items-center justify-center mr-2">
           <DropdownMenuLabel className="text-lg">My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
@@ -30,14 +32,19 @@ const UserNav = () => {
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Button variant="destructive" size="sm" onClick={SignOut} className="text-lg">
+            <Button
+              variant="destructive"
+              size="sm"
+              onClick={SignOut}
+              className="text-lg"
+            >
               SignOut
             </Button>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
-  )
-}
+  );
+};
 
-export default UserNav
+export default UserNav;

@@ -1,8 +1,8 @@
 // "use client";
 
-import Link from "next/link"
-import MainNav from "./main-nav"
-import UserNav from "./user-nav"
+import Link from "next/link";
+import MainNav from "./main-nav";
+import UserNav from "./user-nav";
 import Image from "next/image";
 import logo from "@/public/img/logo.png";
 import LoginSignupNav from "./signinSignup-nav";
@@ -20,7 +20,7 @@ const Navbar = async () => {
     <header className="w-full fixed z-10 top-0 bg-gray-100 dark:bg-gray-900 border-b border-gray-200">
       <nav className="h-16 px-4 flex items-center">
         <Link href="/">
-          <Image src={logo} alt="menu" width={65} height={65}/>
+          <Image src={logo} alt="menu" width={65} height={65} />
         </Link>
         <h1 className="text-lg text-red-300 font-bold">EShop</h1>
         <MainNav />
@@ -29,7 +29,7 @@ const Navbar = async () => {
         </div>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
