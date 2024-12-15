@@ -37,3 +37,5 @@ Website Link: [https://my-test-app2-nextjs-prisma.vercel.app/](https://my-test-a
 - [Lucide-React](https://lucide.dev/guide/packages/lucide-react)
 - [Shadcn/ui](https://ui.shadcn.com/)
 - [SWR](https://swr.vercel.app/)
+- [ESLint] (https://eslint.org/)
+- [Prettier] (https://prettier.io/)

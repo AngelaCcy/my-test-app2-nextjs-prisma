@@ -1,10 +1,7 @@
 import ProductForm from "@/app/components/ProductFormAPI";
 
 const CreateProduct = () => {
-
-    return (
-        <ProductForm />
-    );
-}
+  return <ProductForm />;
+};
 
 export default CreateProduct;

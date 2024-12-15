@@ -1,11 +1,5 @@
-
-
 const SignUpPage = async () => {
-    return (
-        <div className="w-full flex flex-col items-center">
-            Sign Up
-        </div>
-    )
-}
+  return <div className="w-full flex flex-col items-center">Sign Up</div>;
+};
 
-export default SignUpPage
+export default SignUpPage;
