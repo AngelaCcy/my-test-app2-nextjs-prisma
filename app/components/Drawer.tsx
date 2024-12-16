@@ -1,3 +1,5 @@
+import { X } from "lucide-react";
+
 interface Props {
   isOpen: boolean;
   children: React.ReactNode;
@@ -18,7 +20,9 @@ const Drawer = ({ children, isOpen, onCartIconClick }: Props) => {
         <aside className="h-full overflow-y-auto">
           <header className="bg-red-300 text-white py-4 flex items-center justify-end px-4 h-14">
             <div>
-              <button onClick={onCartIconClick}>Close</button>
+              <button onClick={onCartIconClick}>
+                <X />
+              </button>
             </div>
           </header>
           <main className="bg-white p-4 text-black">{children}</main>
