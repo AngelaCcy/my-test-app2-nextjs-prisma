@@ -1,4 +1,10 @@
 import { z } from "zod";
+import type { User } from "@prisma/client";
+
+export type sessionUser = Omit<
+  User,
+  "emailVerified" | "createdAt" | "updatedAt" | "favoriteIds" | "name"
+> & { name: string | null | undefined };
 
 // export interface Product {
 //     id: number;
@@ -97,6 +103,6 @@ export function sortByPrice(direction: Direction, data: Product[]) {
 //includes為JS string method, 若包含某字串, 會return true
 export function filterProductByTitle(query: string, data: Product[]) {
   return data.filter((el) =>
-    el.title.toLowerCase().includes(query.toLowerCase()),
+    el.title.toLowerCase().includes(query.toLowerCase())
   );
 }
