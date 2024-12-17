@@ -14,10 +14,14 @@ import UserAvatar from "./user-avatar";
 import { SignOut } from "../utils/authActions";
 import { Button } from "@/components/ui/button";
 import CartNav from "./cart-nav";
+import { FileHeart } from "lucide-react";
 
 const UserNav = () => {
   return (
     <div className="flex justify-center ">
+      <Link href="/favorites">
+        <FileHeart className="mr-4 mt-1" />
+      </Link>
       <CartNav />
       <DropdownMenu>
         <DropdownMenuTrigger>

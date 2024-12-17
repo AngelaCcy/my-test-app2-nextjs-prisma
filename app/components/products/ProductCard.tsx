@@ -3,16 +3,20 @@ import Image from "next/image";
 import { useCartStore } from "../../stores/useCartStore";
 
 import { SaleProduct as Product } from "@/app/utils/fake-data";
+import HeartButton from "../HeartButton";
+import { User } from "@prisma/client";
 
 interface Props {
   product: Product;
+  currentUser?: User | null;
 }
 
-export default function ProductCard({ product }: Props) {
+export default function ProductCard({ product, currentUser }: Props) {
   const addToCart = useCartStore((state) => state.addToCart);
 
   return (
-    <div className="hover:-animate-bounce-y bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl flex flex-col justify-between p-4 ">
+    <div className="hover:-animate-bounce-y bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl flex flex-col justify-between p-4 relative">
+      <HeartButton productId={String(product.id)} currentUser={currentUser} />
       <Image
         src={product.images[0]}
         alt={product.title}
